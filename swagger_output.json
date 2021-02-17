@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Encurtador de URL API",
+    "description": "Encurta URLs cadastradas e redireciona quando endpoint correspondente é chamado",
+    "contact": {
+      "email": "bhmn91@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "host": "localhost:8081",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Encurtador"
+    },
+    {
+      "name": "Redirecionar"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/{newUrl}": {
+      "get": {
+        "tags": [
+          "Redirecionar"
+        ],
+        "summary": "Redireciona url encurtada",
+        "description": "",
+        "operationId": "redirectURL",
+        "parameters": [
+          {
+            "name": "newUrl",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Não encontrado"
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        }
+      }
+    },
+    "/encurtador": {
+      "post": {
+        "tags": [
+          "Encurtador"
+        ],
+        "summary": "Cadastra url encurtada",
+        "description": "",
+        "operationId": "encurtarURL",
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "type": "string",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "example": "https://www.google.com.br/"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cadastro efetuado com sucesso"
+          },
+          "500": {
+            "description": "Erro interno"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "basepath": "/"
+}

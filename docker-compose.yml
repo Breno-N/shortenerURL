@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app_db:
+    build:
+      dockerfile: ./docker/app-db.dockerfile
+      context: .
+    image: brenohmnunes/postgres
+    container_name: app_db
+    ports:
+      - "3211:3211"
+      - "5432:5432"
+    networks: 
+      - production-network
+
+  app_node:
+    build:
+      dockerfile: ./docker/app-node.dockerfile
+      context: .
+    image: brenohmnunes/node
+    container_name: app_node
+    ports:
+      - "8081:8081"
+    networks: 
+      - production-network
+    depends_on: 
+      - "app_db"
+
+networks:
+  production-network:
+    driver: bridge
