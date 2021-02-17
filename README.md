@@ -10,7 +10,7 @@
 ```sh
 $ mkdir encurtador_url
 $ cd encurtador_url
-$ git clone 
+$ git clone https://github.com/Breno-N/shortenerURL.git
 $ docker-compose build
 $ docker-compse up -d
 ```
