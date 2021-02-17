@@ -13,7 +13,7 @@ $ cd projeto
 $ git clone https://github.com/Breno-N/shortenerURL.git
 $ cd shortenerURL
 $ docker-compose build
-$ docker-compse up -d
+$ docker-compose up -d
 ```
 
 ### Execução de testes
