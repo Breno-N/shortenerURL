@@ -30,5 +30,5 @@ Documentação feita com Swagger, disponível em http://localhost:8081/api-docs
 ```sh
 $ docker-compose down
 $ docker-compose build
-$ docker-compse up -d
+$ docker-compose up -d
 ```
